@@ -1,1 +1,3 @@
-﻿app.controller('Test', function () { });
+﻿app.controller('Test', function($scope) {
+    $scope.test = "Hello riyadh";
+});

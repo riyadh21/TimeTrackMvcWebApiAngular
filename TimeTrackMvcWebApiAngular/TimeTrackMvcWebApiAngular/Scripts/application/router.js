@@ -1,5 +1,5 @@
 ﻿app.config(function ($routeProvider) {
-    $routeProvider.when('/', {
+    $routeProvider.when('/test', {
         templateUrl: 'test.html',
         controller: 'Test'
     }).

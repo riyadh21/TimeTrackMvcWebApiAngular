@@ -1,5 +1,5 @@
-﻿var app = angular.module('timeTrack', ['ngResource']);
-
-app.run(function($rootScope, $location, $window, events, context) {
-    alert("");
+﻿var app = angular.module('timeTrack', ['ngRoute']);
+//$window, events, context
+app.run(function($rootScope, $location ) {
+    $location.path('/test');
 });

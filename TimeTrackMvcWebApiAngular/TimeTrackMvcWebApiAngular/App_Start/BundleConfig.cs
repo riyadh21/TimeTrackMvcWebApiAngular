@@ -27,9 +27,9 @@ namespace TimeTrackMvcWebApiAngular
                     "~/Scripts/respond.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/angularController").Include(
-                    "~/Scripts/application/controllers/test.js",
                     "~/Scripts/application/application.js",
-                    "~/Scripts/application/router.js"));
+                    "~/Scripts/application/router.js",
+                    "~/Scripts/application/controllers/Test.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                     "~/Content/bootstrap.css",
@@ -40,6 +40,11 @@ namespace TimeTrackMvcWebApiAngular
 
             bundles.Add(new ScriptBundle("~/bundles/angular", AngularCdn).Include(
                      "~/Scripts/angular.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/application")
+                .Include("~/Scripts/underscore.js")
+                .IncludeDirectory("~/Scripts/application", "*.js", true));
+
             // Set EnableOptimizations to false for debugging. For more information,
             // visit http://go.microsoft.com/fwlink/?LinkId=301862
             BundleTable.EnableOptimizations = true;
