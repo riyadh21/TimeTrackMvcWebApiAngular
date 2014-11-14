@@ -127,6 +127,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\application\application.js" />
+    <Content Include="Scripts\application\controllers\test.js" />
+    <Content Include="Scripts\application\router.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\fonts\fontawesome-webfont.eot" />
@@ -191,13 +194,13 @@
     <Content Include="Views\Shared\LegacyIE.cshtml" />
     <Content Include="Views\Shared\Head.cshtml" />
     <Content Include="Views\Shared\Scripts.cshtml" />
+    <Content Include="Views\Home\test.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\images\" />
     <Folder Include="Infrastructure\" />
     <Folder Include="Models\" />
-    <Folder Include="Scripts\application\controllers\" />
     <Folder Include="Scripts\application\directives\" />
     <Folder Include="Scripts\application\services\" />
   </ItemGroup>
