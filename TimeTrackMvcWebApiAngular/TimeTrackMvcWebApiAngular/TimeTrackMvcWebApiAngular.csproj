@@ -112,6 +112,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -128,7 +129,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\application\application.js" />
-    <Content Include="Scripts\application\controllers\Test.js" />
+    <Content Include="Scripts\application\controllers\testController.js" />
     <Content Include="Scripts\application\router.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -195,7 +196,8 @@
     <Content Include="Views\Shared\LegacyIE.cshtml" />
     <Content Include="Views\Shared\Head.cshtml" />
     <Content Include="Views\Shared\Scripts.cshtml" />
-    <Content Include="Views\Home\test.cshtml" />
+    <None Include="Views\Home\test.cshtml" />
+    <Content Include="Views\Test\Test.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
