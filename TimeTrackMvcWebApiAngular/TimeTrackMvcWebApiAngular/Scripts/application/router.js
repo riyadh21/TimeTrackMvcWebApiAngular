@@ -5,13 +5,16 @@
         controller: 'homeController'
     })
     .when('/about', {
-        templateUrl: '/Home/about',
-        controller: 'homeController'
+        templateUrl: 'about.html',
+        controller: 'aboutController'
     })
     .when('/test', {
         templateUrl: '/Test/Test',
         controller: 'testController'
-    });
+    })
+    .otherwise({
+        redirectTo: '/'
+    });;
 };
 configFunction.$inject = ['$routeProvider'];
 app.config(configFunction);

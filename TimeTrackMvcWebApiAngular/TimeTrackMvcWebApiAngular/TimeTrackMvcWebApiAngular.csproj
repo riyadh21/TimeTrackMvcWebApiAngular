@@ -200,6 +200,7 @@
     <Content Include="Views\Shared\Head.cshtml" />
     <Content Include="Views\Shared\Scripts.cshtml" />
     <Content Include="Views\ClientViews\Home.cshtml" />
+    <Content Include="Views\ClientViews\About.cshtml" />
     <None Include="Views\Home\test.cshtml" />
     <Content Include="Views\Test\Test.cshtml" />
   </ItemGroup>
