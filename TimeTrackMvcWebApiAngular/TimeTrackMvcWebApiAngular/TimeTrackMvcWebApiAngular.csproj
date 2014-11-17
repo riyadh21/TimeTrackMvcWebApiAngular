@@ -116,6 +116,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ClientViewExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -129,6 +130,8 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\application\application.js" />
+    <Content Include="Scripts\application\controllers\aboutController.js" />
+    <Content Include="Scripts\application\controllers\homeController.js" />
     <Content Include="Scripts\application\controllers\testController.js" />
     <Content Include="Scripts\application\router.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -196,6 +199,7 @@
     <Content Include="Views\Shared\LegacyIE.cshtml" />
     <Content Include="Views\Shared\Head.cshtml" />
     <Content Include="Views\Shared\Scripts.cshtml" />
+    <Content Include="Views\ClientViews\Home.cshtml" />
     <None Include="Views\Home\test.cshtml" />
     <Content Include="Views\Test\Test.cshtml" />
   </ItemGroup>
