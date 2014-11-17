@@ -37,16 +37,18 @@ namespace TimeTrackMvcWebApiAngular
             bundles.Add(new StyleBundle("~/Content/font-awesome").Include(
                     "~/Content/font-awesome.css", new CssRewriteUrlTransform()));
 
+            bundles.Add(new ScriptBundle("~/bundles/underscore").Include(
+                    "~/Scripts/underscore.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/angular", AngularCdn).Include(
                      "~/Scripts/angular.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/application")
-                .Include("~/Scripts/underscore.js")
                 .IncludeDirectory("~/Scripts/application", "*.js", true));
 
             // Set EnableOptimizations to false for debugging. For more information,
             // visit http://go.microsoft.com/fwlink/?LinkId=301862
-            BundleTable.EnableOptimizations = true;
+            BundleTable.EnableOptimizations = false;
         }
     }
 }
