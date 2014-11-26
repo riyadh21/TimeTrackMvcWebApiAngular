@@ -132,7 +132,7 @@
     <Content Include="Scripts\application\application.js" />
     <Content Include="Scripts\application\controllers\aboutController.js" />
     <Content Include="Scripts\application\controllers\homeController.js" />
-    <Content Include="Scripts\application\controllers\testController.js" />
+    <Content Include="Scripts\application\controllers\contactController.js" />
     <Content Include="Scripts\application\router.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -201,6 +201,7 @@
     <Content Include="Views\Shared\Scripts.cshtml" />
     <Content Include="Views\ClientViews\Home.cshtml" />
     <Content Include="Views\ClientViews\About.cshtml" />
+    <Content Include="Views\ClientViews\Contact.cshtml" />
     <None Include="Views\Home\test.cshtml" />
     <Content Include="Views\Test\Test.cshtml" />
   </ItemGroup>
