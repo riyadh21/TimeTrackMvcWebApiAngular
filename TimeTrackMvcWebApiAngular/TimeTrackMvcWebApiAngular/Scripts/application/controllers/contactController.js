@@ -1,3 +1,3 @@
-﻿app.controller('testController', function($scope) {
+﻿app.controller('contactcontroller', function($scope) {
     $scope.headertext = "contact";
 });
