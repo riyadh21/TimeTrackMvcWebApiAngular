@@ -130,6 +130,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\application\application.js" />
+    <Content Include="Scripts\application\controllers\signupController.js" />
     <Content Include="Scripts\application\controllers\loginController.js" />
     <Content Include="Scripts\application\controllers\aboutController.js" />
     <Content Include="Scripts\application\controllers\homeController.js" />
@@ -204,6 +205,7 @@
     <Content Include="Views\ClientViews\About.cshtml" />
     <Content Include="Views\ClientViews\Contact.cshtml" />
     <Content Include="Views\ClientViews\Login.cshtml" />
+    <Content Include="Views\ClientViews\Signup.cshtml" />
     <None Include="Views\Home\test.cshtml" />
     <Content Include="Views\Test\Test.cshtml" />
   </ItemGroup>
