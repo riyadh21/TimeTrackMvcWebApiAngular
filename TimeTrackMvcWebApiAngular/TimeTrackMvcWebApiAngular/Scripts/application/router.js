@@ -21,7 +21,7 @@
             controller: 'signupController'
         })
         .otherwise({
-            redirectTo: '/#/'
+            redirectTo: '/'
         });
 };
 configFunction.$inject = ['$routeProvider'];
