@@ -25,7 +25,8 @@ namespace TimeTrackMvcWebApiAngularApi
         {
             IdentityUser user = new IdentityUser
             {
-                UserName = userModel.UserName
+                UserName = userModel.UserName,
+                Email = userModel.Email
             };
 
             var result = await _userManager.CreateAsync(user, userModel.Password);

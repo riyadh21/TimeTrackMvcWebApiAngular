@@ -14,7 +14,11 @@ namespace TimeTrackMvcWebApiAngularApi.Models
 
         [Required]
         [Display(Name = "User email")]
-        public string UserEmail { get; set; }
+        public string Email { get; set; }
+
+        [Required]
+        [Display(Name = "Confirmed email")]
+        public string EmailConfirmed { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
