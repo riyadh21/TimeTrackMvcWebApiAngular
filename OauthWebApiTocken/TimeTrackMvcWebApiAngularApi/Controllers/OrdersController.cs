@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Http;
-
-namespace TimeTrackMvcWebApiAngularApi.Controllers
+﻿namespace TimeTrackMvcWebApiAngularApi.Controllers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Web;
+    using System.Web.Http;
+
     [System.Web.Mvc.RoutePrefix("api/Orders")]
     public class OrdersController : ApiController
     {
