@@ -34,7 +34,7 @@ namespace TimeTrackMvcWebApiAngular
             bundles.Add(new StyleBundle("~/Content/css").Include(
                     "~/Content/bootstrap.css",
                     "~/Content/loading-bar.css",
-                    "~/Content/"
+                    "~/Content/site.css"
                     ));
             bundles.Add(new StyleBundle("~/Content/font-awesome").Include(
                     "~/Content/font-awesome.css", new CssRewriteUrlTransform()));
