@@ -9,11 +9,15 @@
             <h1 class="text-center login-title">Register new account to continue to Time Tracking tool</h1>
             <div class="account-wall">
                 <form class="form-signin">
-                    <input type="text" class="form-control" placeholder="Name" required autofocus>
-                    <input type="text" class="form-control" placeholder="Email" required autofocus>
-                    <input type="password" class="form-control" placeholder="Password" required>
-                    <input type="password" class="form-control" placeholder="Retype Password" required>
-                    <button class="btn btn-default btn-block" type="submit">Register</button>
+                    <input type="text" class="form-control" placeholder="Name" required autofocus data-ng-model ="registration.userName">
+                    <input type="text" class="form-control" placeholder="Email" required autofocus data-ng-model="registration.email">
+                    <input type="text" class="form-control" placeholder="Confirmed Email" required autofocus data-ng-model="registration.emailConfirmed">
+                    <input type="password" class="form-control" placeholder="Password" required data-ng-model="registration.password">
+                    <input type="password" class="form-control" placeholder="Retype Password" required data-ng-model="registration.confirmPassword">
+                    <button class="btn btn-default btn-block" type="submit" data-ng-click="signUp()">Register</button>
+                    <div data-ng-hide="message == ''" data-ng-class="(savedSuccessfully) ? 'alert alert-success' : 'alert alert-danger'">
+                        {{message}}
+                    </div>
                     <a href="#" class="pull-right need-help">Need help? </a><span class="clearfix"></span>
                 </form>
             </div>

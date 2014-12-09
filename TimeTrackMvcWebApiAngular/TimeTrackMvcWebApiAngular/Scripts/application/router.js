@@ -26,3 +26,7 @@
 };
 configFunction.$inject = ['$routeProvider'];
 app.config(configFunction);
+
+app.run(['authService', function (authService) {
+    authService.fillAuthData();
+}]);
