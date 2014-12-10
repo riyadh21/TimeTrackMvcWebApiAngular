@@ -131,6 +131,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\angular-local-storage.js" />
     <Content Include="Scripts\application\application.js" />
+    <Content Include="Scripts\application\controllers\indexController.js" />
     <Content Include="Scripts\application\controllers\signupController.js" />
     <Content Include="Scripts\application\controllers\loginController.js" />
     <Content Include="Scripts\application\controllers\aboutController.js" />

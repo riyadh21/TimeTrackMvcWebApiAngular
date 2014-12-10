@@ -26,3 +26,7 @@
 };
 configFunction.$inject = ['$routeProvider'];
 app.config(configFunction);
+
+app.config(function ($httpProvider) {
+    $httpProvider.interceptors.push('authInterceptorService');
+});

@@ -1,5 +1,4 @@
 ﻿app.factory('authInterceptorService', ['$q', '$location', 'localStorageService', function ($q, $location, localStorageService) {
-
     var authInterceptorServiceFactory = {};
 
     var _request = function (config) {
@@ -18,6 +17,7 @@
         if (rejection.status === 401) {
             $location.path('/login');
         }
+        
         return $q.reject(rejection);
     }
 

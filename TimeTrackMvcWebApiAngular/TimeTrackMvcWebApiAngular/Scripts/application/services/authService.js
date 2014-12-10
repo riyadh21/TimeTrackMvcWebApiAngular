@@ -1,5 +1,5 @@
 ﻿app.factory('authService', ['$http', '$q', 'localStorageService', function ($http, $q, localStorageService) {
-     var serviceBase = 'http://api.timetrack.com/';
+    var serviceBase = 'http://localhost:58372/';
     //var serviceBase = 'api.timetrack.com';
 
     var authServiceFactory = {};
