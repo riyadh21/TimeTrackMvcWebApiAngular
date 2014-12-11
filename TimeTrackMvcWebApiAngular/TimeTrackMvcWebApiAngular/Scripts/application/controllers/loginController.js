@@ -11,7 +11,8 @@
 
         authService.login($scope.loginData).then(function (response) {
 
-            //$location.path('/orders');
+            //$location.path('/Users');
+            window.location.href = '/Users';
 
         },
          function (err) {

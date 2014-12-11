@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_UsersLayout.cshtml";
+}
+
+@using TimeTrackMvcWebApiAngular.Helpers;
+
+@{
+    Html.IncludeUsersClientViews();
+}
+<div class="row">
+    <div class="col-md-12">
+        <div data-ng-view=""></div>
+    </div>
+</div>
+
+@*@Scripts.Render("~/bundles/underscore")
+    @Scripts.Render("~/bundles/angular")
+    @Scripts.Render("~/bundles/application")*@
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.2/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+<script src="~/Scripts/application/usersApplication/application.js"></script>
+<script src="~/Scripts/application/usersApplication/router.js"></script>
+<script src="~/Scripts/loading-bar.js"></script>
+<script src="~/Scripts/angular-local-storage.js"></script>
+

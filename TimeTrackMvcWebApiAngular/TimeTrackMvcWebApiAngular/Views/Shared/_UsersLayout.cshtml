@@ -1,0 +1,98 @@
+﻿@{
+    const string AppTitle = "Time Tracking tools User Panel";
+}
+
+@functions
+{
+    string PageTitle(string appTitle)
+    {
+        var title = ViewBag.Title ?? string.Empty;
+        if (!string.IsNullOrWhiteSpace(title))
+        {
+            title += " - ";
+        }
+        title += appTitle;
+        
+        return title;
+    }
+}
+
+<!DOCTYPE html>
+<html lang="en" ng-app="timeTrackUser">
+<head>
+    @Html.Partial("Head")
+    <title>@Html.Raw(PageTitle(AppTitle))</title>
+</head>
+<body>
+    @Html.Partial("LegacyIE")
+    <div class="row">
+        <div class="col-md-12">
+            <nav class="navbar navbar-inverse" role="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="AdminHome.aspx">Time Tracking Tool (Admin)</a>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="/#/">Home</a></li>
+                            <li><a href="/#/about">About</a></li>
+                            <li><a href="/#/contact">Contact</a></li>
+                            <li><a href="/#/login">Logout</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="list-group">
+                                <a href="AdminHome.aspx" class="list-group-item active">Dash Board</a>
+                                <a href="NewProject.aspx" class="list-group-item">New Project</a>
+                                <a href="NewUser.aspx" class="list-group-item">New User</a>
+                                <a href="UserPicture.aspx" class="list-group-item">New User image</a>
+                                <a href="ProjectList.aspx" class="list-group-item">Project List</a>
+                                <a href="UserList.aspx" class="list-group-item">User List</a>
+                                <a href="Projectreport.aspx" class="list-group-item">Project Report</a>
+                                <a href="UserReport.aspx" class="list-group-item">User report</a>
+                                <a href="Time.aspx" class="list-group-item">Time</a>
+                                <a href="UserTime.aspx" class="list-group-item">User Time</a>
+                            </div>
+                        </div>
+
+                        <div class="col-md-9">
+                            <div class="container body-content">
+                                @RenderBody()
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <footer>
+                <div class="row">
+                    <div class="col-lg-12">
+                        
+                        <div class="container">
+                            <div class="navbar-header">
+                                <p>Copyright © Time Tracking Tool, @System.DateTime.Now.Year</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    @Html.Partial("Scripts")
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
