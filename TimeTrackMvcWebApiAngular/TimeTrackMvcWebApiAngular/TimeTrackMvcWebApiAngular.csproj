@@ -143,6 +143,15 @@
     <Content Include="Scripts\application\router.js" />
     <Content Include="Scripts\application\services\authService.js" />
     <Content Include="Scripts\application\usersApplication\application.js" />
+    <Content Include="Scripts\application\usersApplication\controllers\usertimeController.js" />
+    <Content Include="Scripts\application\usersApplication\controllers\newprojectController.js" />
+    <Content Include="Scripts\application\usersApplication\controllers\newuserController.js" />
+    <Content Include="Scripts\application\usersApplication\controllers\projectlistController.js" />
+    <Content Include="Scripts\application\usersApplication\controllers\userlistController.js" />
+    <Content Include="Scripts\application\usersApplication\controllers\projectreportController.js" />
+    <Content Include="Scripts\application\usersApplication\controllers\userreportController.js" />
+    <Content Include="Scripts\application\usersApplication\controllers\timeController.js" />
+    <Content Include="Scripts\application\usersApplication\controllers\dashboardController.js" />
     <Content Include="Scripts\application\usersApplication\controllers\userController.js" />
     <Content Include="Scripts\application\usersApplication\router.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -217,6 +226,15 @@
     <Content Include="Views\Shared\_UsersLayout.cshtml" />
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\UsersViews\User.cshtml" />
+    <Content Include="Views\UsersViews\Dashboard.cshtml" />
+    <Content Include="Views\UsersViews\Newproject.cshtml" />
+    <Content Include="Views\UsersViews\Newuser.cshtml" />
+    <Content Include="Views\UsersViews\Projectlist.cshtml" />
+    <Content Include="Views\UsersViews\Userlist.cshtml" />
+    <Content Include="Views\UsersViews\Projectreport.cshtml" />
+    <Content Include="Views\UsersViews\Userreport.cshtml" />
+    <Content Include="Views\UsersViews\Time.cshtml" />
+    <Content Include="Views\UsersViews\Usertime.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
