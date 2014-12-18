@@ -43,7 +43,6 @@
     };
 
     var _logOut = function () {
-
         localStorageService.removeItem('authorizationData');
 
         _authentication.isAuth = false;

@@ -8,16 +8,11 @@
     $scope.message = "";
 
     $scope.login = function () {
-
         authService.login($scope.loginData).then(function (response) {
-
-            //$location.path('/Users');
             window.location.href = '/Users';
-
         },
-         function (err) {
-             $scope.message = err.error_description;
-         });
+        function (err) {
+            $scope.message = err.error_description;
+        });
     };
-
 }]);

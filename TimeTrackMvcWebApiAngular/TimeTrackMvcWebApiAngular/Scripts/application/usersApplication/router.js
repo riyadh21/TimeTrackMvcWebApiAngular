@@ -40,6 +40,10 @@
             templateUrl: 'usertime.html',
             controller: 'usertimeController'
         })
+        .when('/logout', {
+            templateUrl: 'usertime.html',
+            controller: 'logoutController'
+        })
         .otherwise({
             redirectTo: '/'
         });
@@ -47,6 +51,6 @@
 configFunction.$inject = ['$routeProvider'];
 app.config(configFunction);
 
-//app.config(function ($httpProvider) {
-//    $httpProvider.interceptors.push('authInterceptorService');
-//});
+app.config(function ($httpProvider) {
+    $httpProvider.interceptors.push('authInterceptorService');
+});
