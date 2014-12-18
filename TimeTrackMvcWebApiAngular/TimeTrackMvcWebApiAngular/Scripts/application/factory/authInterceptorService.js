@@ -5,7 +5,7 @@
 
         config.headers = config.headers || {};
 
-        var authData = localStorageService.get('authorizationData');
+        var authData = localStorageService.getItem('authorizationData');
         if (authData) {
             config.headers.Authorization = 'Bearer ' + authData.token;
         }

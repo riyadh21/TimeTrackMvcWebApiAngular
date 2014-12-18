@@ -26,9 +26,7 @@
         var deferred = $q.defer();
 
         $http.post(serviceBase + 'token', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).success(function (response) {
-
-            // need to investigate why it is not working.
-            //localStorageService.set('authorizationData', { token: response.access_token, userName: loginData.userName });
+            localStorageService.setItem('authorizationData', { token: response.access_token, userName: loginData.userName });
 
             _authentication.isAuth = true;
             _authentication.userName = loginData.userName;
@@ -46,7 +44,7 @@
 
     var _logOut = function () {
 
-        localStorageService.remove('authorizationData');
+        localStorageService.removeItem('authorizationData');
 
         _authentication.isAuth = false;
         _authentication.userName = "";
@@ -55,7 +53,7 @@
 
     var _fillAuthData = function () {
 
-        var authData = localStorageService.get('authorizationData');
+        var authData = localStorageService.getItem('authorizationData');
         if (authData) {
             _authentication.isAuth = true;
             _authentication.userName = authData.userName;
