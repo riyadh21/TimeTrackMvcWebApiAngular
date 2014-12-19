@@ -178,8 +178,10 @@
     <Compile Include="AuthRepository.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
+    <Compile Include="Controllers\ProjectsController.cs" />
     <Compile Include="Controllers\RefreshTokensController.cs" />
     <Compile Include="Entities\Client.cs" />
+    <Compile Include="Entities\Project.cs" />
     <Compile Include="Entities\RefreshToken.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="Models\Enum.cs" />
@@ -209,6 +211,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Views\Account\" />
     <Folder Include="Views\Orders\" />
+    <Folder Include="Views\Projects\" />
     <Folder Include="Views\RefreshTokens\" />
   </ItemGroup>
   <PropertyGroup>

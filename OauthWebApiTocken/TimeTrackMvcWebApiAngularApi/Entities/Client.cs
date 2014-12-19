@@ -1,5 +1,4 @@
-﻿
-namespace TimeTrackMvcWebApiAngularApi.Entities
+﻿namespace TimeTrackMvcWebApiAngularApi.Entities
 {
     using System;
     using System.Collections.Generic;
