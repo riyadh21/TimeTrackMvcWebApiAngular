@@ -6,6 +6,7 @@
     using System.Web;
     using Microsoft.AspNet.Identity.EntityFramework;
     using System.Data.Entity;
+    using TimeTrackMvcWebApiAngularApi.Models;
     using TimeTrackMvcWebApiAngularApi.Entities;
 
     public class AuthContext : IdentityDbContext<IdentityUser>

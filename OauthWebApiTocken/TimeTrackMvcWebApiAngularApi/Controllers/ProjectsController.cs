@@ -27,6 +27,16 @@
         [System.Web.Mvc.Route("AddProject")]
         public async Task<IHttpActionResult> AddProject(Project projectModel)
         {
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            if (ModelState.IsValid)
+            {
+                _ctx.Projects.Add(projectModel);
+                await _ctx.SaveChangesAsync();
+            }
             //IdentityResult result = await _repo.RegisterUser(projectModel);
             //IHttpActionResult errorResult = GetErrorResult(result);
 
@@ -35,6 +45,35 @@
             //    return errorResult;
             //}
             return Ok();
+        }
+
+        private IHttpActionResult GetErrorResult(IdentityResult result)
+        {
+            if (result == null)
+            {
+                return InternalServerError();
+            }
+
+            if (!result.Succeeded)
+            {
+                if (result.Errors != null)
+                {
+                    foreach (string error in result.Errors)
+                    {
+                        ModelState.AddModelError("", error);
+                    }
+                }
+
+                if (ModelState.IsValid)
+                {
+                    // No ModelState errors are available to send, so just return an empty BadRequest.
+                    return BadRequest();
+                }
+
+                return BadRequest(ModelState);
+            }
+
+            return null;
         }
     }
 }

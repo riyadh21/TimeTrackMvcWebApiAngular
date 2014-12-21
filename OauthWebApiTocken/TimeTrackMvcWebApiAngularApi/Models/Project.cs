@@ -1,4 +1,4 @@
-﻿namespace TimeTrackMvcWebApiAngularApi.Entities
+﻿namespace TimeTrackMvcWebApiAngularApi.Models
 {
     using System;
     using System.Collections.Generic;
@@ -23,5 +23,8 @@
         
         [Required]
         public DateTime ProjectEndDate { get; set; }
+
+        [Required]
+        public string ProjectAddedBy { get; set; }
     }
 }
