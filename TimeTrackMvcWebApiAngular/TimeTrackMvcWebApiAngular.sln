@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeTrackMvcWebApiAngular", "TimeTrackMvcWebApiAngular\TimeTrackMvcWebApiAngular.csproj", "{D4237852-7496-4E05-ACD6-1B6B65B44E98}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B30C393A-AC8C-4F98-B6C9-4B169105B61A} = {B30C393A-AC8C-4F98-B6C9-4B169105B61A}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeTrackMvcWebApiAngularApi", "..\OauthWebApiTocken\TimeTrackMvcWebApiAngularApi\TimeTrackMvcWebApiAngularApi.csproj", "{B30C393A-AC8C-4F98-B6C9-4B169105B61A}"
 EndProject

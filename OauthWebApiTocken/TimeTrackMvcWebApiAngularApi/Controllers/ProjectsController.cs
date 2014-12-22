@@ -32,11 +32,10 @@
             {
                 return BadRequest(ModelState);
             }
-            if (ModelState.IsValid)
-            {
-                _ctx.Projects.Add(projectModel);
-                await _ctx.SaveChangesAsync();
-            }
+
+            _ctx.Projects.Add(projectModel);
+            await _ctx.SaveChangesAsync();
+
             //IdentityResult result = await _repo.RegisterUser(projectModel);
             //IHttpActionResult errorResult = GetErrorResult(result);
 

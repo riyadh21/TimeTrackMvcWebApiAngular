@@ -26,8 +26,7 @@
         {
             IdentityUser user = new IdentityUser
             {
-                UserName = userModel.UserName,
-                Email = userModel.Email
+                UserName = userModel.UserName
             };
 
             var result = await _userManager.CreateAsync(user, userModel.Password);
@@ -40,13 +39,6 @@
             IdentityUser user = await _userManager.FindAsync(userName, password);
 
             return user;
-        }
-
-        public void Dispose()
-        {
-            _ctx.Dispose();
-            _userManager.Dispose();
-
         }
 
         public Client FindClient(string clientId)
@@ -100,6 +92,34 @@
         public List<RefreshToken> GetAllRefreshTokens()
         {
             return _ctx.RefreshTokens.ToList();
+        }
+
+        public async Task<IdentityUser> FindAsync(UserLoginInfo loginInfo)
+        {
+            IdentityUser user = await _userManager.FindAsync(loginInfo);
+
+            return user;
+        }
+
+        public async Task<IdentityResult> CreateAsync(IdentityUser user)
+        {
+            var result = await _userManager.CreateAsync(user);
+
+            return result;
+        }
+
+        public async Task<IdentityResult> AddLoginAsync(string userId, UserLoginInfo login)
+        {
+            var result = await _userManager.AddLoginAsync(userId, login);
+
+            return result;
+        }
+
+        public void Dispose()
+        {
+            _ctx.Dispose();
+            _userManager.Dispose();
+
         }
     }
 }

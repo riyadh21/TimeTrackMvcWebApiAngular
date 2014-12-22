@@ -11,6 +11,8 @@ using TimeTrackMvcWebApiAngularApi.Providers;
 [assembly: OwinStartup(typeof(TimeTrackMvcWebApiAngularApi.Startup))]
 namespace TimeTrackMvcWebApiAngularApi
 {
+    using System.Data.Entity;
+
     public class Startup
     {
         public void Configuration(IAppBuilder app)
@@ -22,6 +24,7 @@ namespace TimeTrackMvcWebApiAngularApi
             WebApiConfig.Register(config);
             app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
             app.UseWebApi(config);
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<AuthContext, TimeTrackMvcWebApiAngularApi.Migrations.Configuration>());
         }
 
         public void ConfigureOAuth(IAppBuilder app)

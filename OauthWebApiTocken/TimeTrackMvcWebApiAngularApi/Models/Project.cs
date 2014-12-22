@@ -19,9 +19,11 @@
         public string ProjectDescription { get; set; }
 
         [Required]
+        [DataType(DataType.Date)]
         public DateTime ProjectStartDate { get; set; }
         
         [Required]
+        [DataType(DataType.Date)]
         public DateTime ProjectEndDate { get; set; }
 
         [Required]
