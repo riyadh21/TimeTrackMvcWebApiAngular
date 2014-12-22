@@ -15,6 +15,8 @@ namespace TimeTrackMvcWebApiAngularApi
 
     public class Startup
     {
+        public static OAuthBearerAuthenticationOptions OAuthBearerOptions { get; private set; }
+
         public void Configuration(IAppBuilder app)
         {
             HttpConfiguration config = new HttpConfiguration();
@@ -29,6 +31,8 @@ namespace TimeTrackMvcWebApiAngularApi
 
         public void ConfigureOAuth(IAppBuilder app)
         {
+            OAuthBearerOptions = new OAuthBearerAuthenticationOptions();
+
             OAuthAuthorizationServerOptions OAuthServerOptions = new OAuthAuthorizationServerOptions()
             {
                 AllowInsecureHttp = true,
@@ -40,7 +44,7 @@ namespace TimeTrackMvcWebApiAngularApi
 
             // Token Generation
             app.UseOAuthAuthorizationServer(OAuthServerOptions);
-            app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions());
+            app.UseOAuthBearerAuthentication(OAuthBearerOptions);
         }
     }
 }
