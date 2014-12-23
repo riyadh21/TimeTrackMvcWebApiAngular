@@ -21,17 +21,18 @@
 
     var _login = function (loginData) {
 
-        var data = "grant_type=password&username=" + loginData.userName + "&password=" + loginData.password;
+        var data = "grant_type=password&client_id=ngAuthApp&username=" + loginData.userName + "&password=" + loginData.password;
 
         var deferred = $q.defer();
 
-        $http.post(serviceBase + 'token', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).success(function (response) {
-            localStorageService.setItem('authorizationData', { token: response.access_token, userName: loginData.userName });
+        $http.post(serviceBase + 'token', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
+            .success(function (response) {
+                localStorageService.setItem('authorizationData', { token: response.access_token, userName: loginData.userName });
 
-            _authentication.isAuth = true;
-            _authentication.userName = loginData.userName;
+                _authentication.isAuth = true;
+                _authentication.userName = loginData.userName;
 
-            deferred.resolve(response);
+                deferred.resolve(response);
 
         }).error(function (err, status) {
             _logOut();

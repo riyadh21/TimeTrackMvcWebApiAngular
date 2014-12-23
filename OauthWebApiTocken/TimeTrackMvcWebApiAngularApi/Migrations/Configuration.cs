@@ -52,7 +52,7 @@ namespace TimeTrackMvcWebApiAngularApi.Migrations
                     ApplicationType =  Models.Enum.ApplicationTypes.JavaScript, 
                     Active = true, 
                     RefreshTokenLifeTime = 7200, 
-                    AllowedOrigin = "http://localhost:58372"
+                    AllowedOrigin = "*"
                 },
                 new Client
                 { 
