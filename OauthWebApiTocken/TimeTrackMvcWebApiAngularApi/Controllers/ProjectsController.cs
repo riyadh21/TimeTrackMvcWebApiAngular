@@ -1,4 +1,6 @@
-﻿namespace TimeTrackMvcWebApiAngularApi.Controllers
+﻿using System.Data.Entity.Validation;
+
+namespace TimeTrackMvcWebApiAngularApi.Controllers
 {
     using System;
     using System.Collections.Generic;
@@ -24,9 +26,12 @@
         }
 
         // POST api/Account/AddProject
+        [System.Web.Mvc.Authorize]
         [System.Web.Mvc.Route("AddProject")]
         public async Task<IHttpActionResult> AddProject(Project projectModel)
         {
+            var projectHashId = Guid.NewGuid().ToString("n");
+            projectModel.Id = Helper.GetHash(projectHashId);
 
             if (!ModelState.IsValid)
             {
@@ -36,13 +41,6 @@
             _ctx.Projects.Add(projectModel);
             await _ctx.SaveChangesAsync();
 
-            //IdentityResult result = await _repo.RegisterUser(projectModel);
-            //IHttpActionResult errorResult = GetErrorResult(result);
-
-            //if (errorResult != null)
-            //{
-            //    return errorResult;
-            //}
             return Ok();
         }
 
