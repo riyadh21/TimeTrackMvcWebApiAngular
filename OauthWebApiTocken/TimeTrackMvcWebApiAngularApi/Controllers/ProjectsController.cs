@@ -7,7 +7,6 @@ namespace TimeTrackMvcWebApiAngularApi.Controllers
     using System.Linq;
     using System.Threading.Tasks;
     using System.Web;
-    using System.Web.Mvc;
     using System.Web.Http;
 
     using Microsoft.AspNet.Identity;
@@ -26,7 +25,7 @@ namespace TimeTrackMvcWebApiAngularApi.Controllers
         }
 
         // POST api/Account/AddProject
-        [System.Web.Mvc.Authorize]
+        [Authorize]
         [System.Web.Mvc.Route("AddProject")]
         public async Task<IHttpActionResult> AddProject(Project projectModel)
         {
@@ -42,7 +41,7 @@ namespace TimeTrackMvcWebApiAngularApi.Controllers
             await _ctx.SaveChangesAsync();
 
             return Ok();
-        }
+       }
 
         private IHttpActionResult GetErrorResult(IdentityResult result)
         {

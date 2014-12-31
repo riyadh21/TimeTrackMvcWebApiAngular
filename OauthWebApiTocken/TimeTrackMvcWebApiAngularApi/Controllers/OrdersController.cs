@@ -9,7 +9,7 @@
     [System.Web.Mvc.RoutePrefix("api/Orders")]
     public class OrdersController : ApiController
     {
-        [System.Web.Mvc.Authorize]
+        [Authorize]
         [System.Web.Mvc.Route("")]
         public IHttpActionResult Get()
         {
