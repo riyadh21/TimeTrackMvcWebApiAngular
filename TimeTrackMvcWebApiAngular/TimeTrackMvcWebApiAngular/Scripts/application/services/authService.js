@@ -60,7 +60,18 @@
         }
 
     }
+    
+    var _isAuthenticate = function() {
+        var authData = localStorageService.getItem('authorizationData');
+        if (authData) {
+            return true;
+        } else {
+            return false;
+        }
+        
+    }
 
+    authServiceFactory.isAuthenticate = _isAuthenticate;
     authServiceFactory.saveRegistration = _saveRegistration;
     authServiceFactory.login = _login;
     authServiceFactory.logOut = _logOut;

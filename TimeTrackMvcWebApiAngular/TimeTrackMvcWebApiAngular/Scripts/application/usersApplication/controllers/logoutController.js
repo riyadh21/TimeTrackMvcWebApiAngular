@@ -1,8 +1,4 @@
-﻿app.controller('logoutController', ['authService', 'localStorageService', function ($scope, authService, localStorageService) {
-    $scope.logOut = function() {
-        //need to investigate
-        localStorage.removeItem('authorizationData');
-    };
-
-    $scope.logOut();
+﻿app.controller('logoutController', ['$scope', 'authService', 'localStorageService', function ($scope, authService, localStorageService) {
+    authService.logOut();
+    window.location.href = '/';
 }]);
