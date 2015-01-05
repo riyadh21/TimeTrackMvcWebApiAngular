@@ -93,3 +93,7 @@ textarea {
 }
 
 .nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+
+.input-group-btn-date {
+ width: 0%;   
+}
