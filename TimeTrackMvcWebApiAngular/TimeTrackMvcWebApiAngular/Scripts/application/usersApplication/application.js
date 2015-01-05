@@ -1,4 +1,4 @@
-﻿var app = angular.module('timeTrackUser', ['ngRoute', 'angular-loading-bar']);
+﻿var app = angular.module('timeTrackUser', ['ngRoute', 'angular-loading-bar', 'ui.bootstrap']);
 
 app.run(['authService', function (authService) {
 
