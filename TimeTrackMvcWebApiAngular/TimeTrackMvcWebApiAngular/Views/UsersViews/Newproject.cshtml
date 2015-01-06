@@ -9,13 +9,8 @@
 
     <div class="row">
         <div class="col-md-12">
-            <div data-ng-hide="failMessage == ''" class="alert alert-danger">
-                {{failMessage}}
-            </div>
-
-            <div data-ng-hide="successMessage == ''" class="alert alert-success">
-                {{successMessage}}
-            </div>
+            <alert data-ng-hide="failMessage == ''" type="danger" close="closeAlert()">{{failMessage}}</alert>
+            <alert data-ng-hide="successMessage == ''" type="success" close="closeAlert()">{{successMessage}}</alert>
         </div>
     </div>
 

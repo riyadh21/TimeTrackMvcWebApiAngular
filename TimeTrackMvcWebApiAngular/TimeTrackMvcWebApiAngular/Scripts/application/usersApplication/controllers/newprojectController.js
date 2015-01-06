@@ -1,7 +1,13 @@
-﻿app.controller('newprojectController', ['$scope', 'authService', function ($scope, authService) {
-    $scope.test = "Time Tracking Tools user";
+﻿app.controller('newprojectController', ['$scope', 'authService', 'projectService', function ($scope, authService, projectService) {
+    //init message
     $scope.failMessage = "";
     $scope.successMessage = "";
+
+    //alert
+    $scope.closeAlert = function () {
+        $scope.failMessage = "";
+        $scope.successMessage = "";
+    };
 
     //Project data
     $scope.newProject = {
@@ -19,6 +25,10 @@
             } else {
                 $scope.successMessage = "Project added successfully";
                 $scope.failMessage = "";
+
+                projectService.addNewProject($scope.newProject);
+
+                $scope.clearAll();
             }
         } else {
             $scope.failMessage = "Please fill up all the fields";
@@ -26,7 +36,8 @@
         }
     };
 
-    $scope.clearAll = function() {
+    //clear all data
+    $scope.clearAll = function () {
         $scope.newProject = {
             projectName: '',
             projectDescription: '',
@@ -64,7 +75,7 @@
         $scope.openedEndCalender = false;
     };
 
-    $scope.projectEnd = function($event) {
+    $scope.projectEnd = function ($event) {
         $event.preventDefault();
         $event.stopPropagation();
 
@@ -79,4 +90,6 @@
 
     $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
     $scope.format = $scope.formats[0];
+
+
 }]);

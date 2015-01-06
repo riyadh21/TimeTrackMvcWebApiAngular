@@ -156,6 +156,8 @@
     <Content Include="Scripts\application\usersApplication\controllers\dashboardController.js" />
     <Content Include="Scripts\application\usersApplication\controllers\userController.js" />
     <Content Include="Scripts\application\usersApplication\router.js" />
+    <Content Include="Scripts\application\usersApplication\services\baseUrlService.js" />
+    <Content Include="Scripts\application\usersApplication\services\projectService.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Content\fonts\fontawesome-webfont.eot" />
@@ -247,7 +249,6 @@
     <Folder Include="Scripts\application\directives\" />
     <Folder Include="Scripts\application\usersApplication\directives\" />
     <Folder Include="Scripts\application\usersApplication\factory\" />
-    <Folder Include="Scripts\application\usersApplication\services\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
