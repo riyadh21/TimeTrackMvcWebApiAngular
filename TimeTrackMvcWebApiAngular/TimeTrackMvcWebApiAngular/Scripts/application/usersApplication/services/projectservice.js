@@ -4,27 +4,56 @@
     var projectServiceFactory = {};
 
     var _addNewProject = function (project) {
-        //var token = 
-        //$http.post(serviceBase + 'api/Projects/AddProject', project, { headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'Authorization': 'Bearer 3qnc7ksw7kHH5rmYxiJ0pM-96_WNdeFR_ENLtbe0vqpmmQUkCpDY6GpGaaRbfVWdW_KWOheSMNOUhoxE4snJY06F15_knfdRebX7RANAbZdyVx7EFoc6-26_3-47nMlHO3Yd_3PfkNmTHSSs2nCJGPClukWYpzJ_ynQT-TFQ8FyiQ3ptjxsvuMw00FCk1UgZx4ON1u4HZy5Y113u-mpj5omhB9r7rA3dpd30YGO7rLXRuzu3oY0c3vT1giCFmNYb1LDi6LZNnQ3MQl3hoYMkU12HFVt5DTdviIcDGnCCIZE' } })
-        //    .success(function (response) {
-        //        deferred.resolve(response);
+        var userInfo = localStorageService.getItem("authorizationData");
+        var accessToken = userInfo.token;
+        var userEmail = userInfo.userName;
+        project.projectAddedby = userEmail;
+        
+        var requestData = {
+            url: serviceBase + 'api/Projects/AddProject',
+            data: project,
+            token: accessToken
+        };
 
-        //    }).error(function (err, status) {
-        //        deferred.reject(err);
-        //    });
+        var settings = getSettings(requestData);
+        settings.method = "POST";
+        return $http(settings);
     };
 
     var _editProject = function(project) {
-        return true;
+        
     };
 
     var _loadAllProject = function() {
-        return true;
+        
     };
+
+    var _deleteProject = function(project) {
+
+    };
+
+    function getSettings(requestData) {
+        return {
+            url: requestData.url,
+            dataType: requestData.dataType || "json",
+            data: requestData.data || {},
+            headers: requestData.headers || {
+                "accept": "application/json; charset=utf-8",
+                'Authorization': 'Bearer ' + requestData.token
+            },
+            async: requestData.async || "false",
+            cache: requestData.cache || "false",
+            success: requestData.success || {},
+            error: requestData.error || {},
+            complete: requestData.complete || {},
+            fail: requestData.fail || {}
+        };
+    }
 
     projectServiceFactory.addNewProject = _addNewProject;
     projectServiceFactory.editProject = _editProject;
     projectServiceFactory.loadAllProject = _loadAllProject;
+    projectServiceFactory.deleteProject = _deleteProject;
 
     return projectServiceFactory;
 }]);

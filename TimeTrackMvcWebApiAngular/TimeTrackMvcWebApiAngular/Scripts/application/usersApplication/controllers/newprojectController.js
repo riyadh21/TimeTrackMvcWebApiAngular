@@ -14,7 +14,8 @@
         projectName: '',
         projectDescription: '',
         projectStartDate: '',
-        projectEndDate: ''
+        projectEndDate: '',
+        projectAddedby: ''
     };
 
     $scope.addNewProject = function (isValid) {
@@ -42,7 +43,8 @@
             projectName: '',
             projectDescription: '',
             projectStartDate: '',
-            projectEndDate: ''
+            projectEndDate: '',
+            projectAddedby: ''
         };
     };
 
@@ -88,7 +90,7 @@
         startingDay: 1
     };
 
-    $scope.formats = ['dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
+    $scope.formats = ['MM/dd/yyyy', 'dd-MMMM-yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy', 'shortDate'];
     $scope.format = $scope.formats[0];
 
 
