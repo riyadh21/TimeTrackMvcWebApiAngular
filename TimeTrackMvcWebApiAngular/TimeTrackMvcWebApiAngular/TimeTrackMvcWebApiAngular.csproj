@@ -141,8 +141,10 @@
     <Content Include="Scripts\application\controllers\contactController.js" />
     <Content Include="Scripts\application\factory\authInterceptorService.js" />
     <Content Include="Scripts\application\router.js" />
+    <Content Include="Scripts\application\services\ajaxRequest.js" />
     <Content Include="Scripts\application\services\authService.js" />
     <Content Include="Scripts\application\services\localStorageService.js" />
+    <Content Include="Scripts\application\services\service.js" />
     <Content Include="Scripts\application\usersApplication\application.js" />
     <Content Include="Scripts\application\usersApplication\controllers\logoutController.js" />
     <Content Include="Scripts\application\usersApplication\controllers\usertimeController.js" />

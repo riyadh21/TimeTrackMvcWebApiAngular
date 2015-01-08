@@ -24,13 +24,14 @@ namespace TimeTrackMvcWebApiAngularApi.Controllers
             _ctx = new AuthContext();
         }
 
-        // POST api/Account/AddProject
+        // POST api/Projects/AddProject
         [Authorize]
         [System.Web.Mvc.Route("AddProject")]
         public async Task<IHttpActionResult> AddProject(Project projectModel)
         {
             var projectHashId = Guid.NewGuid().ToString("n");
             projectModel.Id = Helper.GetHash(projectHashId);
+            projectModel.CreatedAt = DateTime.UtcNow;
 
             if (!ModelState.IsValid)
             {

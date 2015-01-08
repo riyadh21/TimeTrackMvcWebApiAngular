@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
     using System.Web;
     using System.ComponentModel.DataAnnotations;
@@ -11,6 +12,7 @@
         public string Id { get; set; }
 
         [Required]
+        [Index(IsUnique = true)]
         [MaxLength(200)]
         public string ProjectName { get; set; }
 
@@ -28,5 +30,8 @@
 
         [Required]
         public string ProjectAddedBy { get; set; }
+
+        [DataType(DataType.Date)]
+        public DateTime CreatedAt { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-﻿app.factory('projectService', ['$http', '$q', 'localStorageService', 'authService', 'baseUrlService', function ($http, $q, localStorageService, authService, baseUrlService) {
+﻿app.factory('projectService', ['$http', '$q', 'localStorageService', 'authService', 'baseUrlService', 'ajaxRequest', function ($http, $q, localStorageService, authService, baseUrlService, ajaxRequest) {
     var serviceBase = baseUrlService.baseUrl();
     
     var projectServiceFactory = {};
@@ -15,9 +15,11 @@
             token: accessToken
         };
 
-        var settings = getSettings(requestData);
-        settings.method = "POST";
-        return $http(settings);
+        //var settings = getSettings(requestData.url, requestData.data, requestData.token);
+        //settings.method = "POST";
+        //return $http(settings);
+
+        ajaxRequest.submit(requestData.url, requestData.data, requestData.token);
     };
 
     var _editProject = function(project) {
@@ -32,23 +34,23 @@
 
     };
 
-    function getSettings(requestData) {
-        return {
-            url: requestData.url,
-            dataType: requestData.dataType || "json",
-            data: requestData.data || {},
-            headers: requestData.headers || {
-                "accept": "application/json; charset=utf-8",
-                'Authorization': 'Bearer ' + requestData.token
-            },
-            async: requestData.async || "false",
-            cache: requestData.cache || "false",
-            success: requestData.success || {},
-            error: requestData.error || {},
-            complete: requestData.complete || {},
-            fail: requestData.fail || {}
-        };
-    }
+    //function getSettings(requestData) {
+    //    return {
+    //        url: requestData.url,
+    //        dataType: requestData.dataType || "json",
+    //        data: requestData.data || {},
+    //        headers: requestData.headers || {
+    //            "accept": "application/json; charset=utf-8",
+    //            'Authorization': 'Bearer ' + requestData.token
+    //        },
+    //        async: requestData.async || "false",
+    //        cache: requestData.cache || "false",
+    //        success: requestData.success || {},
+    //        error: requestData.error || {},
+    //        complete: requestData.complete || {},
+    //        fail: requestData.fail || {}
+    //    };
+    //}
 
     projectServiceFactory.addNewProject = _addNewProject;
     projectServiceFactory.editProject = _editProject;
