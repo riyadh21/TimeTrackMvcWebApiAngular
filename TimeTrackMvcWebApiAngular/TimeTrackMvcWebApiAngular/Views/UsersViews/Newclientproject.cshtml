@@ -1,0 +1,54 @@
+﻿<script type="text/ng-template" id="newclient.html">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="container">
+                <h1 class="page-header">Add New Client</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <alert data-ng-hide="failMessage == ''" type="danger" close="closeAlert()">{{failMessage}}</alert>
+            <alert data-ng-hide="successMessage == ''" type="success" close="closeAlert()">{{successMessage}}</alert>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <form name="clientForm" data-ng-submit="addNewClient(clientForm.$valid)" novalidate>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Client Name</label>
+                    <input type="text" class="form-control" name="projectName" id="clientName" placeholder="Client Name" data-ng-model="newClientProject.ClientName">
+                    <p data-ng-show="clientForm.projectName.$invalid" class="help-block">Client name is required</p>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Description</label>
+                    <textarea class="form-control" placeholder="Description" data-ng-model="newClientProject.ClientDescription" required></textarea>
+                </div>
+                <div class="form-group1">
+                    <label for="exampleInputEmail1">Client Start Date </label>
+                    <p class="input-group">
+                        <input type="text" class="form-control" datepicker-popup="{{'MM/dd/yyyy'}}" ng-disabled="true" data-ng-model="newClientProject.ClientStartDate" is-open="openedStartCalender" min-date="minDate" max-date="'2017-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" placeholder="MM/DD/YYYY" required />
+                        <span class="input-group-btn input-group-btn-date">
+                            <button type="button" class="btn btn-default" ng-click="clientProjectStart($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </p>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Client End Date</label>
+                    <p class="input-group">
+
+                        <input type="text" class="form-control" datepicker-popup="{{'MM/dd/yyyy'}}" ng-disabled="true" data-ng-model="newClientProject.ClientEndDate" is-open="openedEndCalender" min-date="minDate" max-date="'2017-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" placeholder="MM/DD/YYYY" required />
+                        <span class="input-group-btn input-group-btn-date">
+                            <button type="button" class="btn btn-default" ng-click="clientProjectEnd($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+                        </span>
+                    </p>
+                </div>
+
+                <button type="submit" class="btn btn-default" ng-disabled="clientForm.$invalid">Add New Client</button>
+                <button type="button" class="btn btn-default" data-ng-click="clearAll()">Clear</button>
+            </form>
+        </div>
+    </div>
+</script>
