@@ -15,7 +15,6 @@
         public string Id { get; set; }
 
         [Required]
-        [Index(IsUnique = true)]
         [MaxLength(200)]
         public string ProjectName { get; set; }
 
@@ -40,7 +39,6 @@
         //foreign key for Client
         public string ClientProjectRefId { get; set; }
 
-        [Required]
         [ForeignKey("ClientProjectRefId")]
         public ClientProject ClientProject { get; set; }
     }
