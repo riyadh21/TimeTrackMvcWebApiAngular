@@ -14,7 +14,7 @@ namespace TimeTrackMvcWebApiAngularApi.Controllers
 
     using TimeTrackMvcWebApiAngularApi.Models;
 
-    [System.Web.Mvc.RoutePrefix("api/Clients")]
+    [System.Web.Mvc.RoutePrefix("api/ClientProject")]
     public class ClientProjectController : ApiController
     {
         private AuthContext _ctx;
@@ -24,7 +24,7 @@ namespace TimeTrackMvcWebApiAngularApi.Controllers
             _ctx = new AuthContext();
         }
 
-        // POST api/Clients/AddClient
+        // POST api/ClientProject/AddClient
         [System.Web.Http.Authorize]
         [System.Web.Mvc.Route("AddClient")]
         public async Task<IHttpActionResult> AddClient(ClientProject clientProjectModel)
