@@ -17,22 +17,22 @@
         ajaxRequest.submit(requestData.url, requestData.data, requestData.token);
     };
 
-    var _editProject = function(project) {
+    var _editClientProject = function (project) {
         
     };
 
-    var _loadAllProject = function() {
+    var _loadAllClientProject = function () {
         
     };
 
-    var _deleteProject = function(project) {
+    var _deleteClientProject = function (project) {
 
     };
     
     projectServiceFactory.addNewClientProject = _addNewClientProject;
-    projectServiceFactory.editProject = _editProject;
-    projectServiceFactory.loadAllProject = _loadAllProject;
-    projectServiceFactory.deleteProject = _deleteProject;
+    projectServiceFactory.editClientProject = _editClientProject;
+    projectServiceFactory.loadAllClientProject = _loadAllClientProject;
+    projectServiceFactory.deleteClientProject = _deleteClientProject;
 
     return projectServiceFactory;
 }]);
