@@ -147,6 +147,7 @@
     <Content Include="Scripts\application\services\service.js" />
     <Content Include="Scripts\application\usersApplication\application.js" />
     <Content Include="Scripts\application\usersApplication\controllers\logoutController.js" />
+    <Content Include="Scripts\application\usersApplication\controllers\newclientProjectController.js" />
     <Content Include="Scripts\application\usersApplication\controllers\usertimeController.js" />
     <Content Include="Scripts\application\usersApplication\controllers\newprojectController.js" />
     <Content Include="Scripts\application\usersApplication\controllers\newuserController.js" />
@@ -159,6 +160,7 @@
     <Content Include="Scripts\application\usersApplication\controllers\userController.js" />
     <Content Include="Scripts\application\usersApplication\router.js" />
     <Content Include="Scripts\application\usersApplication\services\baseUrlService.js" />
+    <Content Include="Scripts\application\usersApplication\services\clientProjectService.js" />
     <Content Include="Scripts\application\usersApplication\services\projectService.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -242,6 +244,7 @@
     <Content Include="Views\UsersViews\Userreport.cshtml" />
     <Content Include="Views\UsersViews\Time.cshtml" />
     <Content Include="Views\UsersViews\Usertime.cshtml" />
+    <Content Include="Views\UsersViews\Newclientproject.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
