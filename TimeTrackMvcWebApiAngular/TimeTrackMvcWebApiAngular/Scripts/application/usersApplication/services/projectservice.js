@@ -14,11 +14,6 @@
             data: project,
             token: accessToken
         };
-
-        //var settings = getSettings(requestData.url, requestData.data, requestData.token);
-        //settings.method = "POST";
-        //return $http(settings);
-
         ajaxRequest.submit(requestData.url, requestData.data, requestData.token);
     };
 
@@ -33,25 +28,7 @@
     var _deleteProject = function(project) {
 
     };
-
-    //function getSettings(requestData) {
-    //    return {
-    //        url: requestData.url,
-    //        dataType: requestData.dataType || "json",
-    //        data: requestData.data || {},
-    //        headers: requestData.headers || {
-    //            "accept": "application/json; charset=utf-8",
-    //            'Authorization': 'Bearer ' + requestData.token
-    //        },
-    //        async: requestData.async || "false",
-    //        cache: requestData.cache || "false",
-    //        success: requestData.success || {},
-    //        error: requestData.error || {},
-    //        complete: requestData.complete || {},
-    //        fail: requestData.fail || {}
-    //    };
-    //}
-
+    
     projectServiceFactory.addNewProject = _addNewProject;
     projectServiceFactory.editProject = _editProject;
     projectServiceFactory.loadAllProject = _loadAllProject;

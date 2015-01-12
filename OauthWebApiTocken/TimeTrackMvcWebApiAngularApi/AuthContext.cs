@@ -20,5 +20,6 @@
         public DbSet<Client> Clients { get; set; }
         public DbSet<RefreshToken> RefreshTokens { get; set; }
         public DbSet<Project> Projects { get; set; }
+        public DbSet<ClientProject> ClientProjects { get; set; }
     }
 }

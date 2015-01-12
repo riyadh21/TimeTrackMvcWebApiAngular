@@ -6,6 +6,9 @@
     using System.Linq;
     using System.Web;
     using System.ComponentModel.DataAnnotations;
+
+    using TimeTrackMvcWebApiAngularApi.Entities;
+
     public class Project
     {
         [Key]
@@ -33,5 +36,12 @@
 
         [DataType(DataType.Date)]
         public DateTime CreatedAt { get; set; }
+
+        //foreign key for Client
+        public string ClientProjectRefId { get; set; }
+
+        [Required]
+        [ForeignKey("ClientProjectRefId")]
+        public ClientProject ClientProject { get; set; }
     }
 }
