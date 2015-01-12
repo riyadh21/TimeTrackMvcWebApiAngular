@@ -8,6 +8,10 @@
             templateUrl: 'dashboard.html',
             controller: 'dashboardController'
         })
+        .when('/newclient', {
+            templateUrl: 'newclient.html',
+            controller: 'newclientprojectController'
+        })
         .when('/newproject', {
             templateUrl: 'newproject.html',
             controller: 'newprojectController'
