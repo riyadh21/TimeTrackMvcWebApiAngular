@@ -1,4 +1,4 @@
-﻿angular.module('uiRouterAimApp.services')
+﻿angular.module('uiRouterTimeTrackApp.services')
     .factory('ajaxRequest', ajaxRequest);
 
 ajaxRequest.$inject = ['$http'];
