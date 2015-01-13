@@ -1,9 +1,9 @@
-﻿
-
-namespace TimeTrackMvcWebApiAngularApi.Controllers
+﻿namespace TimeTrackMvcWebApiAngularApi.Controllers
 {
     using System;
     using System.Collections.Generic;
+    using System.Data.Entity;
+    using System.Dynamic;
     using System.Linq;
     using System.Threading.Tasks;
     using System.Web;
@@ -12,6 +12,7 @@ namespace TimeTrackMvcWebApiAngularApi.Controllers
 
     using Microsoft.AspNet.Identity;
 
+    using TimeTrackMvcWebApiAngularApi.Entities;
     using TimeTrackMvcWebApiAngularApi.Models;
 
     [System.Web.Mvc.RoutePrefix("api/ClientProject")]
@@ -43,6 +44,46 @@ namespace TimeTrackMvcWebApiAngularApi.Controllers
 
             return Ok();
         }
+
+        // GET api/ClientProject/getAllClients
+        [System.Web.Http.Authorize]
+        [System.Web.Mvc.Route("GetClients")]
+        public async Task<IHttpActionResult> GetClients()
+        {
+            
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            dynamic clientList = new ExpandoObject();
+
+            clientList.clients = _ctx.ClientProjects.Select(
+                            client => new
+                            {
+                                clientName = client.ClientName
+                            }
+                        ).ToList();
+            
+            return Ok(clientList);
+        }
+
+        // GET api/ClientProject/getClients/
+        [System.Web.Http.Authorize]
+        [System.Web.Mvc.Route("GetClient")]
+        public async Task<IHttpActionResult> GetClient(string clientName)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            dynamic client = new ExpandoObject();
+
+            client.clients = this._ctx.ClientProjects.FirstOrDefault(c => c.ClientName==clientName);
+
+            return Ok(client);
+        } 
 
         private IHttpActionResult GetErrorResult(IdentityResult result)
         {

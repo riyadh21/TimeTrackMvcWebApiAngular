@@ -7,7 +7,8 @@ namespace TimeTrackMvcWebApiAngularApi.Models
 {
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-
+    
+    [Serializable]
     public class ClientProject
     {
         [Key]

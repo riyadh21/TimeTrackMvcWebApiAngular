@@ -16,11 +16,19 @@ namespace TimeTrackMvcWebApiAngularApi
             // Web API routes
             config.MapHttpAttributeRoutes();
 
+            //config.Routes.MapHttpRoute(
+            //name: "ClientProject",
+            //routeTemplate: "api/ClientProject/getClient/{id}",
+            //defaults: new { controller = "ClientProject", clientName = RouteParameter.Optional }
+            //);
+            
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+
             var jsonFormatter = config.Formatters.OfType<JsonMediaTypeFormatter>().First();
             jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
         }
