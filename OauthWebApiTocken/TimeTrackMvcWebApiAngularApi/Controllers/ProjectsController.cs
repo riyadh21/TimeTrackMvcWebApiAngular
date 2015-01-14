@@ -4,6 +4,7 @@ namespace TimeTrackMvcWebApiAngularApi.Controllers
 {
     using System;
     using System.Collections.Generic;
+    using System.Dynamic;
     using System.Linq;
     using System.Threading.Tasks;
     using System.Web;
@@ -32,17 +33,25 @@ namespace TimeTrackMvcWebApiAngularApi.Controllers
             var projectHashId = Guid.NewGuid().ToString("n");
             projectModel.Id = Helper.GetHash(projectHashId);
             projectModel.CreatedAt = DateTime.UtcNow;
-
+            
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
-
+            projectModel.ClientProjectRefId = this.GetClient(projectModel.ClientProjectRefId);
             _ctx.Projects.Add(projectModel);
             await _ctx.SaveChangesAsync();
 
             return Ok();
        }
+
+        private string GetClient(string clientName)
+        {
+            var client = new ClientProject();
+
+            client = this._ctx.ClientProjects.FirstOrDefault(c => c.ClientName == clientName);
+            return client.Id;
+        }
 
         private IHttpActionResult GetErrorResult(IdentityResult result)
         {
