@@ -16,11 +16,11 @@ namespace TimeTrackMvcWebApiAngularApi
             // Web API routes
             config.MapHttpAttributeRoutes();
 
-            //config.Routes.MapHttpRoute(
-            //name: "ClientProject",
-            //routeTemplate: "api/ClientProject/getClient/{id}",
-            //defaults: new { controller = "ClientProject", clientName = RouteParameter.Optional }
-            //);
+            config.Routes.MapHttpRoute(
+            name: "ClientProject",
+            routeTemplate: "api/ClientProject/{getClient}/{clientName}",
+            defaults: new { controller = "ClientProject", clientName = RouteParameter.Optional }
+            );
             
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
