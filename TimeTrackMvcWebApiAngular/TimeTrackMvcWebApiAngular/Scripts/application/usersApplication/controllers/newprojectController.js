@@ -1,4 +1,4 @@
-﻿app.controller('newprojectController', ['$scope', 'authService', 'projectService', function ($scope, authService, projectService) {
+﻿app.controller('newprojectController', ['$scope', 'authService', 'projectService', 'clientProjectService', function ($scope, authService, projectService, clientProjectService) {
     //init message
     $scope.failMessage = "";
     $scope.successMessage = "";
@@ -15,12 +15,14 @@
         projectDescription: '',
         projectStartDate: '',
         projectEndDate: '',
-        projectAddedby: ''
+        projectAddedby: '',
+        clientName: '',
+        ClientProjectRefId: ''
     };
 
     $scope.addNewProject = function (isValid) {
         if (isValid) {
-            if ($scope.newProject.projectName == '') {
+            if ($scope.newProject.projectName == '' || $scope.newProject.ClientProjectRefId == '') {
                 $scope.failMessage = "Please fill up all the fields";
                 $scope.successMessage = '';
             } else {
@@ -37,6 +39,19 @@
         }
     };
 
+    //$scope.clientList();
+    $scope.clientList = function () {
+       clientProjectService.loadAllClientProject().then(function(response) {
+           $scope.clients = response.data;
+       });
+    };
+    
+    function clients() {
+        $scope.clientList();
+    }
+
+    clients();
+    
     //clear all data
     $scope.clearAll = function () {
         $scope.newProject = {
@@ -44,7 +59,9 @@
             projectDescription: '',
             projectStartDate: '',
             projectEndDate: '',
-            projectAddedby: ''
+            projectAddedby: '',
+            clientName: '',
+            ClientProjectRefId: ''
         };
     };
 

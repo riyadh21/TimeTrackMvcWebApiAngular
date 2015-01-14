@@ -22,7 +22,16 @@
     };
 
     var _loadAllClientProject = function () {
+        var userInfo = localStorageService.getItem("authorizationData");
+        var accessToken = userInfo.token;
         
+        var requestData = {
+            url: serviceBase + 'api/ClientProject/getClients',
+            data: { },
+            token: accessToken
+        };
+        
+        return ajaxRequest.get(requestData.url, requestData.data, requestData.token);
     };
 
     var _deleteClientProject = function (clientProject) {
