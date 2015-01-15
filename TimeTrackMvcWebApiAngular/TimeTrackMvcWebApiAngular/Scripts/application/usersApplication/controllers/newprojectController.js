@@ -41,8 +41,9 @@
 
     //$scope.clientList();
     $scope.clientList = function () {
-       clientProjectService.loadAllClientProject().then(function(response) {
-           $scope.clients = response.data;
+        $scope.clients = {};
+        clientProjectService.loadAllClientProject().then(function(response) {
+            $scope.clients = response.data;
        });
     };
     
