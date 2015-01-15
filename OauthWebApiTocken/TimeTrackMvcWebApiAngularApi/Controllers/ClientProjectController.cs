@@ -45,12 +45,35 @@
             return Ok();
         }
 
+        //// GET api/ClientProject/getAllClients
+        //[System.Web.Http.Authorize]
+        //[System.Web.Mvc.Route("GetClients")]
+        //public async Task<IHttpActionResult> GetClients()
+        //{
+            
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return BadRequest(ModelState);
+        //    }
+
+        //    dynamic clientList = new ExpandoObject();
+
+        //    clientList.clients = _ctx.ClientProjects.Select(
+        //                    client => new
+        //                    {
+        //                        clientName = client.ClientName
+        //                    }
+        //                ).ToList();
+            
+        //    return Ok(clientList);
+        //}
+
         // GET api/ClientProject/getAllClients
         [System.Web.Http.Authorize]
-        [System.Web.Mvc.Route("GetClients")]
-        public async Task<IHttpActionResult> GetClients()
+        [System.Web.Mvc.Route("GetAllClients")]
+        public async Task<IHttpActionResult> GetAllClients()
         {
-            
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -61,10 +84,15 @@
             clientList.clients = _ctx.ClientProjects.Select(
                             client => new
                             {
-                                clientName = client.ClientName
+                                clientName = client.ClientName,
+                                ClientDescription = client.ClientDescription,
+                                ClientStartDate = client.ClientStartDate,
+                                ClientEndDate = client.ClientEndDate,
+                                ClientAddedBy = client.ClientAddedBy
+
                             }
                         ).ToList();
-            
+
             return Ok(clientList);
         }
 
