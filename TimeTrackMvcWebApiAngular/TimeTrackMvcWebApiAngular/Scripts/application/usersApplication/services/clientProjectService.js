@@ -14,7 +14,17 @@
             data: clientProject,
             token: accessToken
         };
-        ajaxRequest.submit(requestData.url, requestData.data, requestData.token);
+        ajaxRequest.submit(requestData.url, requestData.data, requestData.token).success(function(response) {
+            
+        }).error(function (data, status, headers, config) {
+            if (status == '401') {
+                authService.logOut();
+                window.location.href = '/#/login';
+            }
+            else if (status == '500') {
+                //alert("Server error");
+            }
+        });
     };
 
     var _editClientProject = function (clientProject) {
@@ -31,7 +41,17 @@
             token: accessToken
         };
         
-        return ajaxRequest.get(requestData.url, requestData.data, requestData.token);
+        return ajaxRequest.get(requestData.url, requestData.data, requestData.token).success(function (response) {
+
+        }).error(function (data, status, headers, config) {
+            if (status == '401') {
+                authService.logOut();
+                window.location.href = '/#/login';
+            }
+            else if (status == '500') {
+                //alert("Server error");
+            }
+        });
     };
 
     var _deleteClientProject = function (clientProject) {
