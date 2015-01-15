@@ -12,6 +12,10 @@
             templateUrl: 'newclient.html',
             controller: 'newclientprojectController'
         })
+        .when('/clientlist', {
+            templateUrl: 'clientlist.html',
+            controller: 'clientlistController'
+        })
         .when('/newproject', {
             templateUrl: 'newproject.html',
             controller: 'newprojectController'
