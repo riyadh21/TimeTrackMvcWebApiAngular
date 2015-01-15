@@ -51,7 +51,7 @@
 
     };
 
-    var _fillAuthData = function () {
+    var _fillAuthData = function() {
 
         var authData = localStorageService.getItem('authorizationData');
         if (authData) {
@@ -59,8 +59,8 @@
             _authentication.userName = authData.userName;
         }
 
-    }
-    
+    };
+
     var _isAuthenticate = function() {
         var authData = localStorageService.getItem('authorizationData');
         if (authData) {
@@ -68,8 +68,8 @@
         } else {
             return false;
         }
-        
-    }
+
+    };
 
     authServiceFactory.isAuthenticate = _isAuthenticate;
     authServiceFactory.saveRegistration = _saveRegistration;
