@@ -5,5 +5,11 @@
                 <h1 class="page-header">Client List</h1>
             </div>
         </div>
+        
+        <div class="row" data-ng-repeat="client in clients.clients">
+            <div class="col-md-12">
+                {{client.clientName}}
+            </div>
+        </div>
     </div>
 </script>

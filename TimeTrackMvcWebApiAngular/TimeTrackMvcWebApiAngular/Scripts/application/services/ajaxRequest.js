@@ -15,7 +15,7 @@ function ajaxRequest($http) {
 
         var settings = getSettings(requestData);
         settings.method = "GET";
-
+        settings.cache = false;
         return $http(settings);
     };
 

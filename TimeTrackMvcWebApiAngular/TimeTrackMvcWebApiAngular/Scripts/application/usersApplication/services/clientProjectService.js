@@ -37,10 +37,12 @@
         
         var requestData = {
             url: serviceBase + 'api/ClientProject/getClients',
-            data: { },
+            data: {},
+            cache: false,
+            async:false,
             token: accessToken
         };
-        
+
         return ajaxRequest.get(requestData.url, requestData.data, requestData.token).success(function (response) {
 
         }).error(function (data, status, headers, config) {
