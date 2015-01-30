@@ -27,7 +27,7 @@
 
         $http.post(serviceBase + 'token', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
             .success(function (response) {
-                localStorageService.setItem('authorizationData', { token: response.access_token, userName: loginData.userName });
+                localStorageService.setItem('authorizationData', { refreshToken: response.refresh_token, token: response.access_token, userName: loginData.userName });
 
                 _authentication.isAuth = true;
                 _authentication.userName = loginData.userName;
