@@ -6,7 +6,8 @@
 
     var _authentication = {
         isAuth: false,
-        userName: ""
+        userName: "",
+        useRefreshTokens: false
     };
 
     var _saveRegistration = function (registration) {
@@ -27,7 +28,7 @@
 
         $http.post(serviceBase + 'token', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } })
             .success(function (response) {
-                localStorageService.setItem('authorizationData', { refreshToken: response.refresh_token, token: response.access_token, userName: loginData.userName });
+                localStorageService.setItem('authorizationData', { refreshToken: response.refresh_token, token: response.access_token, userName: loginData.userName, useRefreshTokens: true });
 
                 _authentication.isAuth = true;
                 _authentication.userName = loginData.userName;
@@ -43,11 +44,34 @@
 
     };
 
+    var _refreshToken = function () {
+        var deferred = $q.defer();
+        var authData = localStorageService.get('authorizationData');
+        
+        if (authData && authData.useRefreshTokens) {
+            var data = "grant_type=refresh_token&client_id=client_id=ngAuthApp&refresh_token=" + authData.refreshToken;
+            localStorageService.remove('authorizationData');
+            
+            $http = $http || $injector.get('$http');
+            $http.post(serviceBase + 'token', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).success(function (response) {
+                localStorageService.set('authorizationData', { refreshToken: response.refresh_token, token: response.access_token, userName: response.userName, useRefreshTokens: true });
+                deferred.resolve(response);
+            }).error(function (err, status) {
+                _logOut();
+                deferred.reject(err);
+            });
+        } else {
+            deferred.reject();
+        }
+        return deferred.promise;
+    };
+
     var _logOut = function () {
         localStorageService.removeItem('authorizationData');
 
         _authentication.isAuth = false;
         _authentication.userName = "";
+        _authentication.useRefreshTokens = false;
 
     };
 
@@ -57,6 +81,7 @@
         if (authData) {
             _authentication.isAuth = true;
             _authentication.userName = authData.userName;
+            _authentication.useRefreshTokens = authData.useRefreshTokens;
         }
 
     };
@@ -71,12 +96,17 @@
 
     };
 
+    var isLoggedin = function(data) {
+
+    };
+    
     authServiceFactory.isAuthenticate = _isAuthenticate;
     authServiceFactory.saveRegistration = _saveRegistration;
     authServiceFactory.login = _login;
     authServiceFactory.logOut = _logOut;
     authServiceFactory.fillAuthData = _fillAuthData;
     authServiceFactory.authentication = _authentication;
+    authServiceFactory.refreshToken = _refreshToken;
 
     return authServiceFactory;
 }]);
