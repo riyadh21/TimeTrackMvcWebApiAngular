@@ -5,10 +5,21 @@
                 <h1 class="page-header">Client List</h1>
             </div>
         </div>
-        
-        <div class="row" data-ng-repeat="client in clients.clients">
+
+        <div class="row">
             <div class="col-md-12">
-                {{client.clientName}}
+                <table class="table table-hover">
+                    <tr>
+                        <th>Client Name</th>
+                        <th>Client Start</th>
+                        <th></th>
+                    </tr>
+                    <tr data-ng-repeat="client in clients.clients">
+                        <td>{{client.clientName}}</td>
+                        <td>{{client.clientStartDate}}</td>
+                        <td><a href="#/editclient/{{client.clientName}}">Edit</a></td>
+                    </tr>
+                </table>
             </div>
         </div>
     </div>
