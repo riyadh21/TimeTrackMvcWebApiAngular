@@ -1,4 +1,6 @@
-﻿namespace TimeTrackMvcWebApiAngularApi.Controllers
+﻿using System.Data.Entity.Migrations;
+
+namespace TimeTrackMvcWebApiAngularApi.Controllers
 {
     using System;
     using System.Collections.Generic;
@@ -27,7 +29,7 @@
 
         // POST api/ClientProject/AddClient
         [System.Web.Http.Authorize]
-        [System.Web.Mvc.Route("AddClient")]
+        //[System.Web.Mvc.Route("AddClient")]
         public async Task<IHttpActionResult> AddClient(ClientProject clientProjectModel)
         {
             var clientHashId = Guid.NewGuid().ToString("n");
@@ -40,6 +42,23 @@
             }
 
             _ctx.ClientProjects.Add(clientProjectModel);
+            await _ctx.SaveChangesAsync();
+
+            return Ok();
+        }
+
+        // POST api/ClientProject/EditClient
+        [System.Web.Http.Authorize]
+        //[System.Web.Mvc.Route("EditClient")]
+        public async Task<IHttpActionResult> EditClient(ClientProject clientProjectModel)
+        {
+            var clientHashId = Guid.NewGuid().ToString("n");
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            _ctx.ClientProjects.AddOrUpdate(clientProjectModel);
             await _ctx.SaveChangesAsync();
 
             return Ok();
@@ -84,6 +103,7 @@
             clientList.clients = _ctx.ClientProjects.Select(
                             client => new
                             {
+                                clientId = client.Id,
                                 clientName = client.ClientName,
                                 ClientDescription = client.ClientDescription,
                                 ClientStartDate = client.ClientStartDate,
@@ -109,6 +129,23 @@
             dynamic client = new ExpandoObject();
 
             client.clients = this._ctx.ClientProjects.FirstOrDefault(c => c.ClientName==clientName);
+
+            return Ok(client);
+        }
+
+        // GET api/ClientProject/GetClientById/
+        [System.Web.Http.Authorize]
+        [System.Web.Mvc.Route("GetClientById")]
+        public async Task<IHttpActionResult> GetClientById(string id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            dynamic client = new ExpandoObject();
+
+            client.clients = this._ctx.ClientProjects.FirstOrDefault(c => c.Id == id);
 
             return Ok(client);
         } 
