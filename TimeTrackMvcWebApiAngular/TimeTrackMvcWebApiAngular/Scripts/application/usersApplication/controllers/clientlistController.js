@@ -1,4 +1,5 @@
-﻿app.controller('clientlistController', ['$scope', 'authService', 'projectService', 'clientProjectService', function ($scope, authService, projectService, clientProjectService) {
+﻿app.controller('clientlistController', ['$scope', 'authService', 'projectService', 'clientProjectService',
+    function ($scope, authService, projectService, clientProjectService) {
     //init message
     $scope.failMessage = "";
     $scope.successMessage = "";
