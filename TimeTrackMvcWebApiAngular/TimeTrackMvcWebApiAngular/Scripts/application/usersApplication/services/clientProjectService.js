@@ -10,7 +10,7 @@
         clientProject.ClientAddedBy = userEmail;
         
         var requestData = {
-            url: serviceBase + 'api/ClientProject/AddClient',
+            url: serviceBase + 'api/ClientProject/PostClientProject',
             data: clientProject,
             token: accessToken
         };
@@ -34,11 +34,11 @@
         clientProject.ClientAddedBy = userEmail;
 
         var requestData = {
-            url: serviceBase + 'api/ClientProject/EditClient',
+            url: serviceBase + 'api/ClientProject/PutClientProject',
             data: clientProject,
             token: accessToken
         };
-        ajaxRequest.submit(requestData.url, requestData.data, requestData.token).success(function (response) {
+        ajaxRequest.update(requestData.url, requestData.data, requestData.token).success(function (response) {
 
         }).error(function (data, status, headers, config) {
             if (status == '401') {

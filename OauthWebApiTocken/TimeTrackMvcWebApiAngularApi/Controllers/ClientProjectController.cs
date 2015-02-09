@@ -30,7 +30,7 @@ namespace TimeTrackMvcWebApiAngularApi.Controllers
         // POST api/ClientProject/AddClient
         [System.Web.Http.Authorize]
         //[System.Web.Mvc.Route("AddClient")]
-        public async Task<IHttpActionResult> AddClient(ClientProject clientProjectModel)
+        public async Task<IHttpActionResult> PostClientProject(ClientProject clientProjectModel)
         {
             var clientHashId = Guid.NewGuid().ToString("n");
             clientProjectModel.Id = Helper.GetHash(clientHashId);
@@ -50,7 +50,7 @@ namespace TimeTrackMvcWebApiAngularApi.Controllers
         // POST api/ClientProject/EditClient
         [System.Web.Http.Authorize]
         //[System.Web.Mvc.Route("EditClient")]
-        public async Task<IHttpActionResult> EditClient(ClientProject clientProjectModel)
+        public async Task<IHttpActionResult> PutClientProject(ClientProject clientProjectModel)
         {
             var clientHashId = Guid.NewGuid().ToString("n");
             if (!ModelState.IsValid)
@@ -58,7 +58,7 @@ namespace TimeTrackMvcWebApiAngularApi.Controllers
                 return BadRequest(ModelState);
             }
 
-            _ctx.ClientProjects.AddOrUpdate(clientProjectModel);
+            //_ctx.ClientProjects.AddOrUpdate(clientProjectModel);
             await _ctx.SaveChangesAsync();
 
             return Ok();

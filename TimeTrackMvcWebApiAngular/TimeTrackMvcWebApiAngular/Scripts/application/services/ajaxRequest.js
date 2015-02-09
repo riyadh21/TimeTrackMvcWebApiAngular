@@ -32,6 +32,20 @@ function ajaxRequest($http) {
 
         return $http(settings);
     };
+    
+    self.update = function (url, data, accessToken) {
+        var requestData = {
+            url: url,
+            data: data,
+            token: accessToken
+        };
+
+
+        var settings = getSettings(requestData);
+        settings.method = "PUT";
+
+        return $http(settings);
+    };
 
     self.delete = function (url, data, accessToken, callBack) {
         var requestData = {
