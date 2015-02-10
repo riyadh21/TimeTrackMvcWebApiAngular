@@ -10,6 +10,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeTrackMvcWebApiAngular",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeTrackMvcWebApiAngularApi", "..\OauthWebApiTocken\TimeTrackMvcWebApiAngularApi\TimeTrackMvcWebApiAngularApi.csproj", "{B30C393A-AC8C-4F98-B6C9-4B169105B61A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeTrackUnitTest", "TimeTrackUnitTest\TimeTrackUnitTest.csproj", "{89A9CC4B-9AFD-41E7-A8CA-DFDB714E969F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeTrackAngularTest", "TimeTrackAngularTest\TimeTrackAngularTest.csproj", "{5B26A725-8AEF-4905-ABDC-7F00BAFF3BA7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +28,14 @@ Global
 		{B30C393A-AC8C-4F98-B6C9-4B169105B61A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B30C393A-AC8C-4F98-B6C9-4B169105B61A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B30C393A-AC8C-4F98-B6C9-4B169105B61A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89A9CC4B-9AFD-41E7-A8CA-DFDB714E969F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89A9CC4B-9AFD-41E7-A8CA-DFDB714E969F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89A9CC4B-9AFD-41E7-A8CA-DFDB714E969F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89A9CC4B-9AFD-41E7-A8CA-DFDB714E969F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B26A725-8AEF-4905-ABDC-7F00BAFF3BA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B26A725-8AEF-4905-ABDC-7F00BAFF3BA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B26A725-8AEF-4905-ABDC-7F00BAFF3BA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B26A725-8AEF-4905-ABDC-7F00BAFF3BA7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
