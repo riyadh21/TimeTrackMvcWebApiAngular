@@ -53,12 +53,15 @@ namespace TimeTrackMvcWebApiAngularApi.Controllers
         public async Task<IHttpActionResult> PutClientProject(ClientProject clientProjectModel)
         {
             var clientHashId = Guid.NewGuid().ToString("n");
+
+            var client = _ctx.ClientProjects.Find(clientProjectModel.Id);
+            clientProjectModel.CreatedAt = client.CreatedAt;
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            //_ctx.ClientProjects.AddOrUpdate(clientProjectModel);
+            _ctx.ClientProjects.AddOrUpdate(clientProjectModel);
             await _ctx.SaveChangesAsync();
 
             return Ok();
