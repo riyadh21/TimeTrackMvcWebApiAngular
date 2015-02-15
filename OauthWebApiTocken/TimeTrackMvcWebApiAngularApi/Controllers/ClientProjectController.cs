@@ -56,10 +56,15 @@ namespace TimeTrackMvcWebApiAngularApi.Controllers
 
             var client = _ctx.ClientProjects.Find(clientProjectModel.Id);
             clientProjectModel.CreatedAt = client.CreatedAt;
+            clientProjectModel.ClientAddedBy = client.ClientAddedBy;
+
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
+
+            if(client == null)
+                throw new Exception("Invalied request");
 
             _ctx.ClientProjects.AddOrUpdate(clientProjectModel);
             await _ctx.SaveChangesAsync();
