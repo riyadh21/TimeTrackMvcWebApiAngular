@@ -159,7 +159,24 @@ namespace TimeTrackMvcWebApiAngularApi.Controllers
             client.clients = this._ctx.ClientProjects.FirstOrDefault(c => c.Id == id);
 
             return Ok(client);
-        } 
+        }
+
+        // GET api/ClientProject/GetClientById/
+        [System.Web.Http.Authorize]
+        [System.Web.Mvc.Route("SearchClients")]
+        public async Task<IHttpActionResult> SearchClients(string name)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            dynamic client = new ExpandoObject();
+
+            client.clients = this._ctx.ClientProjects.Where(c => c.ClientName.Contains(name));
+
+            return Ok(client);
+        }
 
         private IHttpActionResult GetErrorResult(IdentityResult result)
         {
