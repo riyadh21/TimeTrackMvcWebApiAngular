@@ -55,6 +55,10 @@ namespace TimeTrackMvcWebApiAngularApi.Controllers
             var clientHashId = Guid.NewGuid().ToString("n");
 
             var client = _ctx.ClientProjects.Find(clientProjectModel.Id);
+
+            if (client == null)
+                throw new Exception("Invalied request");
+
             clientProjectModel.CreatedAt = client.CreatedAt;
             clientProjectModel.ClientAddedBy = client.ClientAddedBy;
 
@@ -63,8 +67,7 @@ namespace TimeTrackMvcWebApiAngularApi.Controllers
                 return BadRequest(ModelState);
             }
 
-            if(client == null)
-                throw new Exception("Invalied request");
+
 
             _ctx.ClientProjects.AddOrUpdate(clientProjectModel);
             await _ctx.SaveChangesAsync();
