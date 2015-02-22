@@ -9,7 +9,6 @@ namespace TimeTrackMvcWebApiAngularApi.Controllers
     using System.Linq;
     using System.Threading.Tasks;
     using System.Web;
-    using System.Web.Mvc;
     using System.Web.Http;
 
     using Microsoft.AspNet.Identity;
@@ -146,7 +145,8 @@ namespace TimeTrackMvcWebApiAngularApi.Controllers
 
         // GET api/ClientProject/GetClientById/
         [System.Web.Http.Authorize]
-        [System.Web.Mvc.Route("GetClientById")]
+        [Route("~/api/ClientProject/GetClientById/{id}")]
+        [HttpGet]
         public async Task<IHttpActionResult> GetClientById(string id)
         {
             if (!ModelState.IsValid)
@@ -163,7 +163,8 @@ namespace TimeTrackMvcWebApiAngularApi.Controllers
 
         // GET api/ClientProject/GetClientById/
         [System.Web.Http.Authorize]
-        [System.Web.Mvc.Route("SearchClients")]
+        [Route("~/api/ClientProject/SearchClients/{name}")]
+        [HttpGet]
         public async Task<IHttpActionResult> SearchClients(string name)
         {
             if (!ModelState.IsValid)
